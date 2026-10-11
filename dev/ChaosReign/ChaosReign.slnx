@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="ChaosReign.vcxproj" Id="85ff8fa3-d2e4-4e61-bc8b-1ead735fb54a" />
+</Solution>
