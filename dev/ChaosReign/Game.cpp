@@ -1,6 +1,8 @@
 #include "Game.h"
 #include <iostream>
 #include <limits>
+#include <string>
+
 
 void Game::DisplayMenu()
 {
@@ -32,38 +34,111 @@ void Game::Start()
 			continue; // go back to the start of the loop
 		}
 
-		switch(choice)
+        std::string characterName = "";
+
 		{
-		case 1:
+		
 			// Handle character creation
 			std::cout << "\n Character Creation?\n";
 				std::cout << "1. Create a new character\n";
+                std::cout << "Enter your character's name: ";
+
+                std::cin >> characterName;
+
+                std::cout << "\nWelcome, " << characterName << "!\n";
+
 			break;
-		case 2:
+		
 			// Handle Load Game
 			std::cout << "\n Load Game?\n";
 				std::cout << "You load your saved game.\n";
 			break;
-		case 3:
+		
 			// Handle inventory
 			std::cout << "\n Inventory?\n";
 				std::cout << "Your Inventory is currently empty.\n";
 			break;
-		case 4:
+		
 			// Handle missions
 			std::cout << "\n Missions\n";
 			std::cout << "No missions available.\n";
 			break;
-		case 5:
+		
 			std::cout << "Thank you for playing Chaos Reign!\n";
 			running = false;
 			break;
 
 
-       default:
+       
 	       std::cout << "Invalid choice. Select 1 through 5.\n";
 	       break;
 
         }
     } 
+}
+
+void Game::Explore()
+{
+    std::cout << "\nYou enter a dark forest...\n";
+    std::cout << "A Fallen Knight appears!\n";
+
+    Enemy enemy("Fallen Knight", 30, 6);
+    Combat(enemy);
+
+    if (enemy.GetHealth() <= 0)
+    {
+        std::cout << "You defeated the enemy!\n";
+        player.AddItem("Ancient Coin");
+    }
+}
+
+void Game::Combat(Enemy & enemy)
+{
+    int choice = 0;
+
+    while (player.GetHealth() > 0 &&
+        enemy.GetHealth() > 0)
+    {
+        player.DisplayStatus();
+        enemy.DisplayStatus();
+
+        std::cout << "\n1. Attack\n";
+        std::cout << "2. Retreat\n";
+        std::cout << "Choose: ";
+
+        if (!(std::cin >> choice))
+        {
+            std::cout << "Enter 1 or 2.\n";
+            std::cin.clear();
+            std::cin.ignore(
+                std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
+
+        if (choice == 1)
+        {
+            enemy.TakeDamage(player.GetAttackPower());
+            std::cout << "You attack the enemy!\n";
+
+            if (enemy.GetHealth() > 0)
+            {
+                player.TakeDamage(enemy.GetAttackPower());
+                std::cout << "The enemy attacks you!\n";
+            }
+        }
+        else if (choice == 2)
+        {
+            std::cout << "You retreat!\n";
+            break;
+        }
+        else
+        {
+            std::cout << "Invalid choice. Choose 1 or 2.\n";
+        }
+    }
+
+    if (player.GetHealth() <= 0)
+    {
+        std::cout << "You have been defeated!\n";
+    }
 }
