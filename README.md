@@ -58,8 +58,20 @@ I made progress organizing my project and improving my understanding of C++ clas
 My next priority is to finish testing the main menu and improve input validation. After that, I plan to add player stats and begin developing the combat system. I will continue testing my changes and updating my GitHub board as I make progress.
 
 ### Week 3
+This week, I continued developing my C++ console RPG, ChaosReign. I worked on the Player and Enemy classes, improved the main menu, and began connecting character creation to the player system. I also worked through compiler errors in Visual Studio and continued organizing my code into separate header and source files.
 
-Stay tuned, this stand up is coming soon...
+🌵 Challenges
+
+One challenge was fixing compiler errors related to class declarations, variable scope, and header files. I addressed these issues by reviewing error messages, correcting my code, and rebuilding the project to test my changes.
+
+🏆 Accomplishments
+
+I improved my understanding of C++ classes, constructors, member functions, and how header files connect to source files. I also got the main menu running and confirmed that input validation responds to invalid menu choices.
+
+🔮 Next Steps
+
+My next priority is to finish connecting character creation to the Player class and test the combat system between the player and enemies. I also plan to review my code for improvements, update my GitHub Issues and Project board, document my development in Milestone3.md, and continue making meaningful commits on the dev branch.
+
 
 ### Week 4
 
