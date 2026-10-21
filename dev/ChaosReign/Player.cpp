@@ -11,6 +11,11 @@ Player::Player()
     inventory.push_back("Health Potion");
 }
 
+void Player::SetName(std::string playerName)
+{
+	name = playerName;
+}
+
 void Player::DisplayStatus()
 {
     std::cout << "\n--- Character Status ---\n";
@@ -21,7 +26,10 @@ void Player::DisplayStatus()
 
 void Player::TakeDamage(int damage)
 {
-    health = health - damage;
+    if (damage < 0)
+    {
+        health = health - damage;
+    }
 
     if (health < 0)
     {

@@ -13,10 +13,13 @@ private:
 public:
     Player();
 
+	void SetName(std::string playerName);
     void DisplayStatus();
     void TakeDamage(int damage);
+
     int GetHealth();
     int GetAttackPower();
+
     void DisplayInventory();
     void AddItem(std::string item);
 };

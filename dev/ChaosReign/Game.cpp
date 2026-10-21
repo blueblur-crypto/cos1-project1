@@ -34,34 +34,50 @@ void Game::Start()
 			continue; // go back to the start of the loop
 		}
 
-        std::string characterName = "";
+        switch(choice)
+        {
+        case 1:
+        {
+           std::string characterName = "";
 
-		{
+		
 		
 			// Handle character creation
 			std::cout << "\n Character Creation?\n";
 				std::cout << "1. Create a new character\n";
                 std::cout << "Enter your character's name: ";
-
                 std::cin >> characterName;
+
+				player.SetName(characterName);
 
                 std::cout << "\nWelcome, " << characterName << "!\n";
 
 			break;
+		}
+
+		case 2:
+		
 		
 			// Handle Load Game
 			std::cout << "\n Load Game?\n";
 				std::cout << "You load your saved game.\n";
 			break;
-		
-			// Handle inventory
+
+
+		case 3:
+
+        
+            // Handle inventory
 			std::cout << "\n Inventory?\n";
 				std::cout << "Your Inventory is currently empty.\n";
 			break;
-		
-			// Handle missions
+
+		case 4:
+
+        
+            // Handle missions
 			std::cout << "\n Missions\n";
-			std::cout << "No missions available.\n";
+			Explore();
 			break;
 		
 			std::cout << "Thank you for playing Chaos Reign!\n";
