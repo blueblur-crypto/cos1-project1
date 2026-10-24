@@ -17,12 +17,16 @@ void Enemy::DisplayStatus()
 
 void Enemy::TakeDamage(int damage)
 {
-    health = health - damage;
 
-    if (health < 0)
+    if (damage > 0)
     {
-        health = 0;
+        health = health - damage;
     }
+
+	if (health < 0)
+	{
+		health = 0;
+	}
 }
 
 int Enemy::GetHealth()

@@ -31,6 +31,8 @@ void Game::Start()
 			std::cout << "Invalid input. Please enter a number between 1 and 5.\n";
 			std::cin.clear(); // clear the error flag
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // discard invalid input
+
+            
 			continue; // go back to the start of the loop
 		}
 
@@ -69,7 +71,7 @@ void Game::Start()
         
             // Handle inventory
 			std::cout << "\n Inventory?\n";
-				std::cout << "Your Inventory is currently empty.\n";
+            player.DisplayInventory();
 			break;
 
 		case 4:
